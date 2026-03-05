@@ -2,9 +2,9 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './core/app.module';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { swaggerSetup } from 'config/swagger.config';
 import { GrpcExceptionFilter } from './shared/filters/grpc-exception.filter';
 import * as cookieParser from 'cookie-parser'
+import { swaggerSetup } from './config/swagger.config';
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);

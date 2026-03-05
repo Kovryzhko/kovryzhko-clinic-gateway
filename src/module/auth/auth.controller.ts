@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Req, Res } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req, Res, UseGuards } from '@nestjs/common';
 import { SendOtpRequest } from './dto/requests/send-otp.request';
 import { AuthClientGrpc } from './auth.grpc';
 import { VerifyOtpRequest } from './dto/requests/verify-otp.request';
@@ -7,12 +7,14 @@ import { Response } from 'express';
 import { Request } from 'express';
 import { ConfigService } from '@nestjs/config';
 import { getAuthRefreshTokenCookieOptions } from './helpers/get-auth-cookie-options';
+import { TelegramVerifyRequest } from './dto/requests/telegram-verify.request';
 
 @Controller('auth')
 export class AuthController {
     constructor(
         private readonly client: AuthClientGrpc,
-        private readonly configService: ConfigService) { }
+        private readonly configService: ConfigService
+    ) { }
 
     @Post('otp/send')
     private async sendOtp(@Body() data: SendOtpRequest) {
@@ -51,6 +53,23 @@ export class AuthController {
         )
 
         return { ok: true }
+    }
 
+    @Get('telegram')
+    private async telegramInit() {
+        return this.client.telegramInit()
+    }
+
+    @Post('telegram/verify')
+    private async telegramVerify(@Body() data: TelegramVerifyRequest, @Res({ passthrough: true }) res: Response) {
+        const query = await JSON.parse(atob(data.authResult))
+
+        const result = await lastValueFrom(this.client.telegramVerify({ data: query }))
+
+        const { accessToken, refreshToken } = result
+
+        res.cookie('refreshToken', refreshToken, getAuthRefreshTokenCookieOptions(this.configService))
+        
+        return { accessToken }
     }
 }

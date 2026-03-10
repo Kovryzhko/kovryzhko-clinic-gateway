@@ -1,5 +1,5 @@
 import { HttpStatus } from "@nestjs/common";
-import { RpcStatus } from 'kovryzhko-clinic-common/dist/rpc-status.enum'
+import { RpcStatus } from 'kovryzhko-clinic-common/dist/enums/rpc-status.enum'
 
 export const grpcToHttpStatus = {
     [RpcStatus.OK]: HttpStatus.OK,

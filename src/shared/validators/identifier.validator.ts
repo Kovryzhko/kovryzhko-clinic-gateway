@@ -1,5 +1,5 @@
 import { ValidationArguments, ValidatorConstraint, ValidatorConstraintInterface } from "class-validator";
-import { SendOtpRequest } from "src/module/auth/dto/requests/send-otp.request";
+import { SendOtpRequest } from "src/modules/auth/dto/requests/send-otp.request";
 
 @ValidatorConstraint({ name: "IdentifierValidator" })
 export class IdentifierValidator implements ValidatorConstraintInterface {

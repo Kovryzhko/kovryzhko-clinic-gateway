@@ -1,8 +1,7 @@
-import { Body, Controller, Get, Post, Req, Res, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req, Res } from '@nestjs/common';
 import { SendOtpRequest } from './dto/requests/send-otp.request';
 import { AuthClientGrpc } from './auth.grpc';
 import { VerifyOtpRequest } from './dto/requests/verify-otp.request';
-import { lastValueFrom } from 'rxjs';
 import { Response } from 'express';
 import { Request } from 'express';
 import { ConfigService } from '@nestjs/config';
@@ -18,12 +17,12 @@ export class AuthController {
 
     @Post('otp/send')
     private async sendOtp(@Body() data: SendOtpRequest) {
-        return this.client.sendOtp(data)
+        return this.client.call('sendOtp', data)
     }
 
     @Post('otp/verify')
     private async verifyOtp(@Body() data: VerifyOtpRequest, @Res({ passthrough: true }) res: Response) {
-        const { accessToken, refreshToken } = await lastValueFrom(this.client.verifyOtp(data))
+        const { accessToken, refreshToken } = await this.client.call('verifyOtp', data)
 
         res.cookie('refreshToken', refreshToken, getAuthRefreshTokenCookieOptions(this.configService))
 
@@ -37,7 +36,7 @@ export class AuthController {
     ) {
         const token = req.cookies?.refreshToken
 
-        const { accessToken, refreshToken } = await lastValueFrom(this.client.refresh({ refreshToken: token }))
+        const { accessToken, refreshToken } = await this.client.call('refresh', { refreshToken: token })
 
         res.cookie('refreshToken', refreshToken, getAuthRefreshTokenCookieOptions(this.configService))
 
@@ -57,19 +56,19 @@ export class AuthController {
 
     @Get('telegram')
     private async telegramInit() {
-        return this.client.telegramInit()
+        return this.client.call('telegramInit', {})
     }
 
     @Post('telegram/verify')
     private async telegramVerify(@Body() data: TelegramVerifyRequest, @Res({ passthrough: true }) res: Response) {
         const query = await JSON.parse(atob(data.authResult))
 
-        const result = await lastValueFrom(this.client.telegramVerify({ data: query }))
+        const result = await this.client.call('telegramVerify', { data: query })
 
         const { accessToken, refreshToken } = result
 
         res.cookie('refreshToken', refreshToken, getAuthRefreshTokenCookieOptions(this.configService))
-        
+
         return { accessToken }
     }
 }

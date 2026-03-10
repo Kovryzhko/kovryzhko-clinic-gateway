@@ -19,27 +19,27 @@ export class AccountController {
     @Protected()
     @Post('email/init')
     private async initEmailChange(@Body() data: InitEmailChangeRequest, @CurrentUser() userId: string) {
-        return this.client.initEmailChange({ ...data, userId })
+        return this.client.call('initEmailChange', { ...data, userId })
     }
 
     @ApiBearerAuth()
     @Protected()
     @Post('email/confirm')
     private async confirmEmailChange(@Body() data: ConfirmEmailChangeRequest, @CurrentUser() userId: string) {
-        return this.client.confirmEmailChange({ ...data, userId })
+        return this.client.call('confirmEmailChange', { ...data, userId })
     }
 
     @ApiBearerAuth()
     @Protected()
     @Post('phone/init')
     private async initPhoneChange(@Body() data: InitPhoneChangeRequest, @CurrentUser() userId: string) {
-        return this.client.initPhoneChange({ ...data, userId })
+        return this.client.call('initPhoneChange', { ...data, userId })
     }
 
     @ApiBearerAuth()
     @Protected()
     @Post('phone/confirm')
     private async confirmPhoneChange(@Body() data: ConfirmPhoneChangeRequest, @CurrentUser() userId: string) {
-        return this.client.confirmPhoneChange({ ...data, userId })
+        return this.client.call('confirmPhoneChange', { ...data, userId })
     }
 }

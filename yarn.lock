@@ -1048,6 +1048,17 @@
     load-esm "1.0.3"
     tslib "2.8.1"
 
+"@nestjs/common@^11.1.16":
+  version "11.1.16"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-11.1.16.tgz#1f4061f66d7ae63e407f8d2be2aaeaf83097332b"
+  integrity sha512-JSIeW+USuMJkkcNbiOdcPkVCeI3TSnXstIVEPpp3HiaKnPRuSbUUKm9TY9o/XpIcPHWUOQItAtC5BiAwFdVITQ==
+  dependencies:
+    uid "2.0.2"
+    file-type "21.3.0"
+    iterare "1.2.1"
+    load-esm "1.0.3"
+    tslib "2.8.1"
+
 "@nestjs/config@^4.0.2":
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/@nestjs/config/-/config-4.0.2.tgz#a2777a1fd2d0d594bab3953f50fbca95c14cce52"
@@ -1056,6 +1067,15 @@
     dotenv "16.4.7"
     dotenv-expand "12.0.1"
     lodash "4.17.21"
+
+"@nestjs/config@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@nestjs/config/-/config-4.0.3.tgz#bb24a5f64e4e3ccf6fbf9e02f63303d14d7f308e"
+  integrity sha512-FQ3M3Ohqfl+nHAn5tp7++wUQw0f2nAk+SFKe8EpNRnIifPqvfJP6JQxPKtFLMOHbyer4X646prFG4zSRYEssQQ==
+  dependencies:
+    dotenv "17.2.3"
+    dotenv-expand "12.0.3"
+    lodash "4.17.23"
 
 "@nestjs/core@^11.0.1":
   version "11.1.12"
@@ -1078,6 +1098,14 @@
   version "11.1.12"
   resolved "https://registry.yarnpkg.com/@nestjs/microservices/-/microservices-11.1.12.tgz#05c497eb5ddcae09ae8ac0d3aa1bcd0b7336816b"
   integrity sha512-WhkQPvqRJukzWJ0NXE2PJuFcurejRgiPmQ2jumcphkTi/oFu/uEXfTa3Bz6CSKp3eh2fkqtG6YGPoVbUdJS9/A==
+  dependencies:
+    iterare "1.2.1"
+    tslib "2.8.1"
+
+"@nestjs/microservices@^11.1.16":
+  version "11.1.16"
+  resolved "https://registry.yarnpkg.com/@nestjs/microservices/-/microservices-11.1.16.tgz#6f445c44adcee88af983830e0667c93ccefe2869"
+  integrity sha512-eG/ArIq0UJyR3i/GTYuApA4OZylhuLGacVaVT9mMxQgT7ZTpp5CZgOwLNdcUUdOS6qypK3waG1m2AC54xzdf0Q==
   dependencies:
     iterare "1.2.1"
     tslib "2.8.1"
@@ -2768,10 +2796,22 @@ dotenv-expand@12.0.1:
   dependencies:
     dotenv "^16.4.5"
 
+dotenv-expand@12.0.3:
+  version "12.0.3"
+  resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-12.0.3.tgz#6323ceca51ca0c1b1f0055e2aba39c79781739a6"
+  integrity sha512-uc47g4b+4k/M/SeaW1y4OApx+mtLWl92l5LMPP0GNXctZqELk+YGgOPIIC5elYmUH4OuoK3JLhuRUYegeySiFA==
+  dependencies:
+    dotenv "^16.4.5"
+
 dotenv@16.4.7:
   version "16.4.7"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.4.7.tgz#0e20c5b82950140aa99be360a8a5f52335f53c26"
   integrity sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==
+
+dotenv@17.2.3:
+  version "17.2.3"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-17.2.3.tgz#ad995d6997f639b11065f419a22fabf567cdb9a2"
+  integrity sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==
 
 dotenv@^16.4.5:
   version "16.6.1"
@@ -4230,18 +4270,22 @@ kleur@^3.0.3:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
 
-kovryzhko-clinic-common@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/kovryzhko-clinic-common/-/kovryzhko-clinic-common-1.0.0.tgz#99fa807b8efefc5a57b15717e5293a632a3b0daa"
-  integrity sha512-a1XcGva/ljF6QdOffnFNvWyLZWSoR9+qVodL++SumGs9rDZLQyLF8BzWwSuoX/9kgre2gDt6LJN/GMYfBAZuAw==
+kovryzhko-clinic-common@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/kovryzhko-clinic-common/-/kovryzhko-clinic-common-1.1.4.tgz#79ec97763ae67590b09c22738f2f955e6e25b318"
+  integrity sha512-SW42f3MO9pxhb/uxgJLj2d9ZBBFz/6+jwelHIg3uiHtGJiRqVINaRFLeiWk8hYxUv8GH3m/BROr8Ebosf83BNw==
   dependencies:
+    "@nestjs/common" "^11.1.16"
+    "@nestjs/config" "^4.0.3"
+    "@nestjs/microservices" "^11.1.16"
     "@types/node" "^25.2.1"
+    kovryzhko-clinic-contracts "^1.1.8"
     typescript "^5.9.3"
 
-kovryzhko-clinic-contracts@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/kovryzhko-clinic-contracts/-/kovryzhko-clinic-contracts-1.0.9.tgz#64244fa824bf8b143e994dac97edff544fe808f3"
-  integrity sha512-9iT+nH9UwBo3snyYwI+dnBtf0tTSfJuCpsphe1V3+Vf3bgG+OtSmwHA8c8TaaIfvab1mdCJM4AwPCggDLwR3rQ==
+kovryzhko-clinic-contracts@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/kovryzhko-clinic-contracts/-/kovryzhko-clinic-contracts-1.1.8.tgz#912be0dff3a1b58be08c2a8e5d0bb4b9d99cff9a"
+  integrity sha512-ThfAJIDJ4wFRRMkqb8mYx5SoUKcjjlKf3t8DC/sle7YHzrG7pSXdoPrk40rRFJzSK3HHEDKnfqUuFjXJtMi4tw==
   dependencies:
     "@nestjs/microservices" "^11.1.12"
     rxjs "^7.8.2"
@@ -4350,7 +4394,7 @@ lodash@4.17.21:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
-lodash@^4.17.21:
+lodash@4.17.23, lodash@^4.17.21:
   version "4.17.23"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.23.tgz#f113b0378386103be4f6893388c73d0bde7f2c5a"
   integrity sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==

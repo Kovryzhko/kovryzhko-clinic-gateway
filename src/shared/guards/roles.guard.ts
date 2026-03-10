@@ -1,7 +1,7 @@
 import { CanActivate, ExecutionContext, ForbiddenException, Injectable, NotFoundException } from "@nestjs/common";
 import { Reflector } from "@nestjs/core";
 import { lastValueFrom, Observable } from "rxjs";
-import { AccountClientGrpc } from "src/module/account/account.grpc";
+import { AccountClientGrpc } from "src/modules/account/account.grpc";
 import { ROLES_KEY } from "../decorators/roles.decorator";
 import { Role } from "kovryzhko-clinic-contracts/gen/account";
 
@@ -27,9 +27,7 @@ export class RolesGuard implements CanActivate {
 
         if (!user) throw new ForbiddenException('User missing')
 
-        const account = await lastValueFrom(
-            this.accountClient.getAccount({ id: user.id })
-        )
+        const account = await this.accountClient.call('getAccount', { id: user.id })
 
         if (!account) throw new NotFoundException('Account not found')
 

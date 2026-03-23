@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+    gateway-service:
+        container_name: gateway-service
+        image: kovryzhko-clinic/gateway-service
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        env_file:
+            - .env.production.local
+        networks:
+            - kovryzhko-clinic
+        ports:
+            - 3000:3000
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost:4000/health"]
+            interval: 1m
+            timeout: 10s
+            retries: 5
+
+networks:
+    kovryzhko-clinic:
+        external: true

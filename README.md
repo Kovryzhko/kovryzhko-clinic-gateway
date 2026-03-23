@@ -1,5 +1,5 @@
 Gateway microservice for kovryzhko-clinic app
 
-Auth, Health
+Auth, Health,
 
-Nest, Swagger, Grpc
+Nest, Swagger, Grpc, Docker, Prometheus metrics

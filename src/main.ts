@@ -5,6 +5,9 @@ import { ConfigService } from '@nestjs/config';
 import { GrpcExceptionFilter } from './shared/filters/grpc-exception.filter';
 import * as cookieParser from 'cookie-parser'
 import { swaggerSetup } from './config/swagger.config';
+import { startTracing } from './observe/tracing/tracing'
+
+startTracing()
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
